@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.karn'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    // the GOAT ORM
+    implementation 'org.hibernate.orm:hibernate-core:7.1.0.Final'
+
+    // Hibernate Processor
+    annotationProcessor 'org.hibernate.orm:hibernate-processor:7.1.0.Final'
+
+    // Hibernate Validator
+    implementation 'org.hibernate.validator:hibernate-validator:9.0.1.Final'
+    implementation 'org.glassfish.expressly:expressly:6.0.0'
+
+    // Agroal connection pool
+    runtimeOnly 'org.hibernate.orm:hibernate-agroal:7.1.0.Final'
+
+    // logging via Log4j
+    runtimeOnly 'org.apache.logging.log4j:log4j-core:2.24.3'
+
+    implementation("com.mysql:mysql-connector-j:9.4.0")
+}
+
+test {
+    useJUnitPlatform()
+}
